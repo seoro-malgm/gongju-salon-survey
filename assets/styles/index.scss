@@ -1,0 +1,145 @@
+// @use 'sass:math';
+@import "./variables.scss";
+
+// bootstrap-vue
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "node_modules/bootstrap-vue/src/index.scss";
+// @import "node_modules/bootstrap/scss/functions";
+// @import "node_modules/bootstrap/scss/variables";
+// @import "node_modules/bootstrap/scss/mixins";
+// @import "bootstrap/scss/bootstrap.scss";
+// @import "bootstrap-vue/src/index.scss";
+
+@import "./font.scss";
+@import "./icons.scss";
+@import "./images.scss";
+@import "./transition.scss";
+
+// fontello
+@import "../css/fontello-embedded.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  // min-height: 100vh;
+  // background-color: #ededed;
+  color: $darkest;
+  max-width: 100vw;
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-track {
+    width: 3px;
+    // background-color: $secondary;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 3px;
+    background-color: $primary;
+  }
+  scroll-behavior: smooth;
+  * {
+    &::selection {
+      background-color: $primary;
+      color: $darkest;
+    }
+  }
+  &.modal-open {
+    padding-right: 0 !important;
+  }
+}
+
+#app {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  color: $darkest;
+  background-color: white;
+  &.dark-mode {
+    color: white;
+    background-color: $darkest;
+  }
+}
+
+.form-control {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-radius: 0;
+}
+
+.b-toaster {
+  z-index: 3000;
+  * {
+    max-width: unset;
+  }
+  header.toast-header {
+    display: none;
+  }
+  .toast-body {
+    border-radius: 0;
+    background-color: $darkest;
+    color: $lightest;
+  }
+  .b-toaster-slot {
+    min-width: 300px;
+    .b-toast {
+      width: 100%;
+      max-width: 35vw;
+      word-break: keep-all;
+    }
+  }
+}
+
+.alarm-dot {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  border-radius: 25rem;
+  font-size: 11px;
+  padding: 2px 6px;
+  color: white;
+  background-color: $alert;
+  min-width: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+
+textarea {
+  resize: none;
+}
+
+.section-gap {
+  margin-top: 96px;
+  margin-bottom: 96px;
+  @media (min-width: 992px) {
+    margin-top: 132px;
+    margin-bottom: 132px;
+  }
+}
+
+.text-category {
+  border: 1px solid $light;
+  border-radius: 10rem;
+  padding: 4px 8px;
+  text-transform: capitalize;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.section-header {
+  padding-top: 8px;
+  margin-top: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bg-flow {
+  position: relative;
+  padding-right: 16px;
+  overflow: hidden;
+  z-index: 2;
+  display: inline-block;
+}

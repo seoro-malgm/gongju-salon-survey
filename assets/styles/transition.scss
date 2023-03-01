@@ -1,0 +1,10 @@
+.fade-show-enter-active {
+  transition: all 0.4s ease;
+}
+.fade-show-leave-active {
+  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.fade-show-enter,
+.fade-show-leave-to {
+  opacity: 0;
+}

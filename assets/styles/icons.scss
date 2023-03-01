@@ -1,0 +1,76 @@
+// variable
+$icon-size: (
+  6,
+  8,
+  9,
+  10,
+  12,
+  13,
+  14,
+  16,
+  18,
+  20,
+  22,
+  24,
+  25,
+  26,
+  28,
+  30,
+  32,
+  36,
+  40,
+  56
+);
+$icons: (eye);
+.icon {
+  min-width: 16px;
+  min-height: 16px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  font-style: normal;
+  // z-index: 2;
+  + span {
+    margin-left: 2px;
+  }
+
+  @each $var in $icons {
+    &.icon-#{$var} {
+      background-image: url('../icons/icon-#{$var}.svg');
+    }
+  }
+  @each $var in $icon-size {
+    &.icon-#{$var} {
+      min-width: #{$var}#{px};
+      width: #{$var}#{px};
+      height: #{$var}#{px};
+    }
+  }
+  @media all and (min-width: 744px) {
+    @each $var in $icon-size {
+      &.icon-md-#{$var} {
+        min-width: #{$var}#{px};
+        width: #{$var}#{px};
+        height: #{$var}#{px};
+      }
+    }
+  }
+
+  @media all and (min-width: 1439.55px) {
+    @each $var in $icon-size {
+      &.icon-xl-#{$var} {
+        min-width: #{$var}#{px};
+        width: #{$var}#{px};
+        height: #{$var}#{px};
+      }
+    }
+  }
+  .icon-image {
+    width: 100%;
+    height: auto;
+  }
+}
