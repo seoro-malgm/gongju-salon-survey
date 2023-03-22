@@ -25,7 +25,12 @@
           </b-form-radio>
         </b-form-group>
         <template v-if="current < questions.length - 1">
-          <b-btn variant="black w-100" @click="current += 1">다음으로</b-btn>
+          <b-btn
+            variant="black w-100"
+            @click="current += 1"
+            :disabled="!input[current]"
+            >다음으로</b-btn
+          >
         </template>
         <template v-else-if="current === questions.length - 1">
           <b-btn variant="black w-100" @click="submit">다음으로</b-btn>
@@ -51,7 +56,7 @@ export default {
     },
   },
   methods: {
-    submit() {
+    async submit() {
       const arr = this.input
       const values = {
         I: 0,
@@ -76,12 +81,18 @@ export default {
           result += key
         }
       }
-      this.$router.push({
-        path: '/survey/result',
-        query: {
-          result,
-        },
-      })
+      const { firestoreAPI } = this.$firebase
+      try {
+        const data = await firestoreAPI.addItem('survey-results', {
+          type: result,
+        })
+        if (data) {
+          window.toast('참여완료!')
+          this.$router.push(`/survey/result?type=${result}`)
+        }
+      } catch (error) {
+        console.error('error:', error)
+      }
     },
   },
 }

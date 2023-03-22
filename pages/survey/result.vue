@@ -1,5 +1,5 @@
 <template>
-  <div>결과: {{ result }}</div>
+  <div>결과: {{ type }}</div>
 </template>
 
 <script>
@@ -11,18 +11,18 @@ export default {
     }
   },
   computed: {
-    result() {
-      return this.$route?.query?.result
+    type() {
+      return this.$route?.query?.type
     },
     validate() {
-      return this.result && allResults.find((r) => r.value === this.result)
+      return this.result && allResults.find((r) => r.value === this.type)
     },
   },
   mounted() {
-    if (!this.validate) {
-      window.alert('잘못된 접근입니다.')
-      this.$router.push('/')
-    }
+    // if (!this.validate) {
+    //   window.alert('잘못된 접근입니다.')
+    //   this.$router.push('/')
+    // }
   },
 }
 </script>

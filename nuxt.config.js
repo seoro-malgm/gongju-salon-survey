@@ -189,7 +189,7 @@ export default {
   ],
 
   plugins: [
-    // { src: "~/plugins/firebase.js" },
+    { src: '~/plugins/firebase.js' },
     { src: '~/plugins/carousel.js', mode: 'client' },
   ],
 
@@ -246,7 +246,6 @@ export default {
     DATABASE_URL: process.env.DATABASE_URL,
     STORAGE_BUCKET: process.env.STORAGE_BUCKET,
     MESSAGING_SENDER_ID: process.env.MESSAGING_SENDER_ID,
-    MEASUREMENT_ID: process.env?.MEASUREMENT_ID || '',
-    TOKEN_NAME: process.env?.TOKEN_NAME || '',
+    MEASUREMENT_ID: process.env.MEASUREMENT_ID,
   },
 }
